@@ -1,2 +1,13 @@
 This is a search engine I'm building to help me learn Python a bit better.
 Most of this is based off of stuff I'm learning in the CS101 Udacity course.
+
+This is currently under development and is missing a lot of features, and a lot needs cleaned up.
+
+web_crawler.py:
+This includes functionality to crawl the web, and return a list of links it has come across.
+
+create_index.py:
+This has the functionality to either build an index from scratch, given a seed url and a depth to search, or can add URL's to the keyword.
+The index is comprised of a python dictionary, with the keys being the keywords and the values being a list of urls where that keyword is found.
+
+I will attempt to comment my files soon so they're a bit more understandable.
