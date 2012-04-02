@@ -10,4 +10,10 @@ create_index.py:
 This has the functionality to either build an index from scratch, given a seed url and a depth to search, or can add URL's to the keyword.
 The index is comprised of a python dictionary, with the keys being the keywords and the values being a list of urls where that keyword is found.
 
+lookup.py:
+Allows you to search through a given index file for some given keywords.
+
+test_index.txt:
+A test index created by my create_index and web_crawler.  Just used to test out my lookup function.
+
 I will attempt to comment my files soon so they're a bit more understandable.

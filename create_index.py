@@ -1,6 +1,7 @@
 import web_crawler
 import re
 import sys
+import pickle
 def get_keywords(url):
 	contents = web_crawler.get_page(url)
 	words = re.split('\W+',contents)
@@ -35,6 +36,6 @@ if __name__ == "__main__":
 	i = crawl_build(sys.argv[1], int(sys.argv[2]))
 	if len(sys.argv)>3:
 		f = open(sys.argv[3], 'w')
-		f.write(str(i))
+		pickle.dump(i, f)
 	else:
 		print i
