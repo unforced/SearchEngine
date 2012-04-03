@@ -1,6 +1,5 @@
-import pickle
+import cPickle
 import sys
-from flask import Flask
 def find_urls(keyword,index):
 	if keyword in index:
 		return index[keyword]
@@ -15,7 +14,7 @@ def find_all(keywords, index):
 	return urls
 
 if __name__ == "__main__":
-	index = pickle.load(open(sys.argv[1]))
+	index = cPickle.load(open(sys.argv[1]))
 	urls = find_all(sys.argv[2:],index)
 	for url in urls:
 		print url

@@ -1,7 +1,7 @@
 import web_crawler
 import re
 import sys
-import pickle
+import cPickle
 def get_keywords(url):
 	contents = web_crawler.get_page(url)
 	words = re.split('\W+',contents)
@@ -32,10 +32,20 @@ def crawl_build(seed,depth):
 	urls = web_crawler.crawl_web(seed,depth)
 	return build_index(urls)
 
+def crawl_add(seed,depth,index):
+    urls = web_crawler.crawl_web(seed,depth)
+    add_all_to_index(urls,index)
+
 if __name__ == "__main__":
-	i = crawl_build(sys.argv[1], int(sys.argv[2]))
-	if len(sys.argv)>3:
-		f = open(sys.argv[3], 'w')
-		pickle.dump(i, f)
-	else:
-		print i
+	f = open(sys.argv[3], 'r')
+	i = {}
+	try:
+		i = cPickle.load(f)
+	except:
+		i = {}
+	f.close()
+	crawl_add(sys.argv[1], int(sys.argv[2]), i)
+	f = open(sys.argv[3], 'w')
+	cPickle.dump(i, f)
+
+
